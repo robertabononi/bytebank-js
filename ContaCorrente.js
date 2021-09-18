@@ -2,22 +2,25 @@ import { Cliente } from './Cliente.js';
 export class ContaCorrente {
     agencia;
     _cliente;
+    _saldo = 0;
 
     set cliente(novoValor) {
         if(novoValor instanceof Cliente) {
             this._cliente = novoValor;
         }
-    } //só pode ser atribuído ao "cliente" uma instancia de Cliente, evitando que sejam atribuídos valores indesejados.
+    }
 
     get cliente() {
         return this._cliente;
     }
 
-    _saldo = 0;
-
     get saldo() {
         return this._saldo
-    } //somente leitura. Não conseguimos atribuir um valor a ele diretamente.
+    }
+    
+    //Só pode ser atribuído ao "cliente" uma instancia de Cliente, evitando que sejam atribuídos valores indesejados.
+    //Resumindo, "set" permite atribuição desde que seja um instância específica.
+    //"Get" permite leitura, mas não novas atribuições.
 
     sacar(valor) {
         if(this._saldo >= valor) {
