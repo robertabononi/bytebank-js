@@ -22,6 +22,11 @@ export class ContaCorrente {
     //Resumindo, "set" permite atribuição desde que seja um instância específica.
     //"Get" permite leitura, mas não novas atribuições.
 
+    constructor(agencia, cliente) {
+        this.agencia = agencia;
+        this.cliente = cliente;
+    }
+
     sacar(valor) {
         if(this._saldo >= valor) {
             this._saldo -= valor;
