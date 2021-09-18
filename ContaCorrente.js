@@ -7,9 +7,17 @@ export class ContaCorrente {
         if(novoValor instanceof Cliente) {
             this._cliente = novoValor;
         }
+    } //só pode ser atribuído ao "cliente" uma instancia de Cliente, evitando que sejam atribuídos valores indesejados.
+
+    get cliente() {
+        return this._cliente;
     }
 
     _saldo = 0;
+
+    get saldo() {
+        return this._saldo
+    } //somente leitura. Não conseguimos atribuir um valor a ele diretamente.
 
     sacar(valor) {
         if(this._saldo >= valor) {
